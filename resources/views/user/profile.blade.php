@@ -421,8 +421,8 @@
                                                                             <p>{{$attachment->title}}</p>
                                                                             <div class="tools tools-bottom">
                                                                                 <a data-toggle="tooltip" data-placement="top" title="View" id="attachment_img" href="{{url('assets/images/attachments/'.$attachment->file)}}" title="{{$attachment->title}}"><i class="fa fa-search"></i></a>
-                                                                                <a data-toggle="tooltip" data-placement="top" title="Download" href="#"><i class="fa fa-download"></i></a>
-                                                                                <a data-toggle="tooltip" data-placement="top" title="Delete" href="#"><i class="fa fa-times"></i></a>
+                                                                                <a data-toggle="tooltip" data-placement="top" title="Download" href="{{route('profile.downloadattachment', $attachment->file)}}"><i class="fa fa-download"></i></a>
+                                                                                <a data-toggle="tooltip" data-placement="top" title="Delete" href="{{route('profile.deleteattachment',$attachment->id)}}" onclick="return confirm('Are you sure to delete this attachment?')"><i class="fa fa-times"></i></a>
                                                                             </div>
                                                                         </div>
                                                                     </div>

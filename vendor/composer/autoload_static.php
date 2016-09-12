@@ -313,10 +313,13 @@ class ComposerStaticInit168e5a6f959912ecfabb2168cad74edd
 
     public static $classMap = array (
         'App\\Models\\Attachment' => __DIR__ . '/../..' . '/app/Models/Attachment.php',
+        'App\\Models\\Role' => __DIR__ . '/../..' . '/app/Models/Role.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'CreateAttachmentsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_08_130211_create_attachments_table.php',
         'CreateCurrencyTable' => __DIR__ . '/../..' . '/database/migrations/2013_11_26_161501_create_currency_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+        'CreateRolesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_10_195056_create_roles_table.php',
+        'CreateUserRoleTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_10_195312_create_user_role_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
@@ -760,6 +763,7 @@ class ComposerStaticInit168e5a6f959912ecfabb2168cad74edd
         'PHP_Token_XOR_EQUAL' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
+        'RoleTableSeeder' => __DIR__ . '/../..' . '/database/seeds/RoleTableSeeder.php',
         'SebastianBergmann\\CodeCoverage\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',
         'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
         'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Driver/Driver.php',

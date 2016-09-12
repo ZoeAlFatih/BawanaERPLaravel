@@ -7,10 +7,13 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Models\\Attachment' => $baseDir . '/app/Models/Attachment.php',
+    'App\\Models\\Role' => $baseDir . '/app/Models/Role.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'CreateAttachmentsTable' => $baseDir . '/database/migrations/2016_09_08_130211_create_attachments_table.php',
     'CreateCurrencyTable' => $baseDir . '/database/migrations/2013_11_26_161501_create_currency_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+    'CreateRolesTable' => $baseDir . '/database/migrations/2016_09_10_195056_create_roles_table.php',
+    'CreateUserRoleTable' => $baseDir . '/database/migrations/2016_09_10_195312_create_user_role_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
@@ -454,6 +457,7 @@ return array(
     'PHP_Token_XOR_EQUAL' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_YIELD' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_YIELD_FROM' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
+    'RoleTableSeeder' => $baseDir . '/database/seeds/RoleTableSeeder.php',
     'SebastianBergmann\\CodeCoverage\\CodeCoverage' => $vendorDir . '/phpunit/php-code-coverage/src/CodeCoverage.php',
     'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => $vendorDir . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
     'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => $vendorDir . '/phpunit/php-code-coverage/src/Driver/Driver.php',

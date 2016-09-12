@@ -30,4 +30,8 @@ class User extends Authenticatable
     public function attachments(){
         return $this->hasMany('App\Models\Attachment', 'foreign_id');
     }
+
+    public function roles(){
+        return $this->belongsToMany('App\Models\Role');
+    }
 }

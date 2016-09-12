@@ -38,17 +38,6 @@ class ProfileController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -147,7 +136,6 @@ class ProfileController extends Controller
     }
 
     public function uploadUserAttachment(Request $request){
-        $attachment=New Attachment();
         Validator::make($request->all(), [
             'title_attachment' => 'required',
             'attachment_file' => 'required|max:11000',
@@ -172,14 +160,23 @@ class ProfileController extends Controller
         return redirect()->back()->with('info', 'Nothing is change..');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function downloadAttachment($attachment){
+        $file= public_path(). '/assets/images/attachments/'.$attachment;
+
+        $headers = array(
+            'Content-Type:image/png',
+            'Content-Type: image/jpeg',
+            'Content-Type: image/jpg'
+        );
+        return response()->download($file, $attachment, $headers);
+    }
+
+    public function deleteAttachment($attachment){
+        $attachment = Attachment::findOrFail($attachment);
+        unlink(public_path('/assets/images/attachments/'.$attachment->file));
+        if ($attachment->delete()){
+            return redirect()->back()->with('success', 'Attachments has been deleted..');
+        }
+        return redirect()->back()->with('info', 'Nothing is change..');
     }
 }
