@@ -30,4 +30,6 @@ Route::get('profile/{attachment}/deleteattachment', ['uses' => 'User\ProfileCont
 
 /*Employee Route*/
 Route::resource('employee', 'Employee\EmployeeController');
+Route::post('employee/asignrole', ['uses' => 'Employee\EmployeeController@assignRoleEmployee', 'as'   => 'employee.asignrole']);
+Route::get('employee/destroyemployee/{employee}', ['uses' => 'Employee\EmployeeController@destroyEmployee', 'as'   => 'employee.destroyemployee']);
 /*end Employee Route*/

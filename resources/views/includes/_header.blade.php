@@ -18,8 +18,11 @@
     {!! Html::style('assets/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css') !!}
     <!-- PNotify -->
     {!! Html::style('assets/vendors/pnotify/dist/pnotify.css') !!}
+    {!! Html::style('assets/vendors/pnotify/dist/pnotify.brighttheme.css') !!}
     {!! Html::style('assets/vendors/pnotify/dist/pnotify.buttons.css') !!}
     {!! Html::style('assets/vendors/pnotify/dist/pnotify.nonblock.css') !!}
+    {!! Html::style('assets/vendors/pnotify/dist/pnotify.material.css') !!}
+    {!! Html::style('assets/vendors/pnotify/dist/pnotify.history.css') !!}
 
     @yield('stylesheet')
 

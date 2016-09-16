@@ -15,7 +15,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>List  <small>Employees</small></h3>
+                <h3>List Employees</h3>
             </div>
         </div>
 
@@ -27,7 +27,7 @@
                 <div class="x_panel">
                     <div class="x_title">
                         <h2>List data <small>Employees</small></h2>
-                        <a href="" class="btn btn-success btn-xs pull-right"><i class="fa fa-plus"></i> Add new</a>
+                        <a href="{{route('employee.create')}}" class="btn btn-success btn-xs pull-right"><i class="fa fa-plus"></i> Add new</a>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -47,43 +47,45 @@
                             <tbody>
                             @foreach($employees as $employee)
                             <tr>
-                                <td>{{$employee->nip}}</td>
+                                {!! Form::open(array('route' => ['employee.asignrole'])) !!}
+                                <td>{{$employee->nip}}<input type="hidden" name="nip" value="{{$employee->nip}}"></td>
                                 <td>{{$employee->name}}</td>
                                 <td>{{$employee->email}}</td>
                                 <td>{{$employee->phone_number}}</td>
                                 <td>{{$employee->position}}</td>
                                 <td>
                                     <div class="btn-group btn-group-xs" data-toggle="buttons">
-                                        <label class="btn btn-default">
-                                            <input type="radio" class="sr-only" id="aspectRatio0" name="aspectRatio" value="User">
+                                        <label class="btn btn-default {{$employee->hasRole('user') ? 'active' : ''}}">
+                                            <input type="radio" class="sr-only" id="role_user" name="role" value="User" {{$employee->hasRole('user') ? 'checked' : ''}}>
                                                 User
                                         </label>
-                                        <label class="btn btn-default">
-                                            <input type="radio" class="sr-only" id="aspectRatio1" name="aspectRatio" value="Author">
+                                        <label class="btn btn-default" {{$employee->hasRole('author') ? 'active' : ''}}>
+                                            <input type="radio" class="sr-only" id="role_author" name="role" value="Author" {{$employee->hasRole('author') ? 'checked' : ''}}>
                                                 Author
                                         </label>
-                                        <label class="btn btn-default active">
-                                            <input type="radio" class="sr-only" id="aspectRatio2" name="aspectRatio" value="Admin" checked>
+                                        <label class="btn btn-default {{$employee->hasRole('admin') ? 'active' : ''}}">
+                                            <input type="radio" class="sr-only" id="role_admin" name="role" value="Admin" {{$employee->hasRole('admin') ? 'checked' : ''}}>
                                                 Admin
                                         </label>
                                     </div>
                                 </td>
-                                <td><button class="btn {{$employee->active==1 ? 'btn-primary' : 'btn-danger'}} btn-xs">{{$employee->active==1 ? 'Active' : 'Inactive'}}</button></td>
+                                <td><a class="btn {{$employee->active==1 ? 'btn-primary' : 'btn-danger'}} btn-xs">{{$employee->active==1 ? 'Active' : 'Inactive'}}</a></td>
                                 <td>
                                     <div class="hidden-sm hidden-xs action-buttons">
-                                        <a class="btn btn-info btn-xs" href="" data-toggle="tooltip" data-placement="top" title="View Or Edit">
+                                        <a class="btn btn-info btn-xs" href="{{route('employee.edit',$employee->id)}}" data-toggle="tooltip" data-placement="top" title="View Or Edit">
                                             <i class="fa fa-search-plus"></i>
                                         </a>
 
-                                        <a class="btn btn-warning btn-xs" href="" data-toggle="tooltip" data-placement="top" title="Assign Role">
+                                        <button type="submit" class="btn btn-warning btn-xs" href="" data-toggle="tooltip" data-placement="top" title="Assign Role">
                                             <i class="fa fa-check-square-o"></i>
-                                        </a>
+                                        </button>
 
-                                        <a class="btn btn-danger btn-xs" href="#" onclick="return confirm('Are you sure to delete this data?')" data-toggle="tooltip" data-placement="top" title="Delete">
+                                        <a class="btn btn-danger btn-xs"  data-toggle="tooltip" data-placement="top" title="Delete" onclick="(new PNotify({title: 'Confirmation deleted',text: 'Are you sure to delete this data?',icon: 'glyphicon glyphicon-question-sign',hide: false,confirm: {confirm: true},buttons: {closer: false,sticker: false},history: {history: false},addclass: 'stack-modal',stack: {'dir1': 'down', 'dir2': 'right', 'modal': true}})).get().on('pnotify.confirm', function(){window.location.href = '{{route('employee.destroyemployee', $employee->id)}}';}).on('pnotify.cancel', function(){close();});">
                                             <i class="ace-icon fa fa-trash-o bigger-130"></i>
                                         </a>
                                     </div>
                                 </td>
+                                {!! Form::close() !!}
                             </tr>
                             @endforeach
                             </tbody>

@@ -24,8 +24,8 @@
         <div class="menu_section">
             <h3>General</h3>
             <ul class="nav side-menu">
-                <li><a href="{{url('/home')}}"><i class="fa fa-home"></i> Home</a></li>
-                <li><a href="{{url('/employee')}}"><i class="fa fa-briefcase"></i> Employees</a></li>
+                <li{!! classActiveSegment(1,'home')!!}><a href="{{url('/home')}}"><i class="fa fa-home"></i> Home</a></li>
+                <li{!! classActiveSegment(1,'employee')!!}><a href="{{url('/employee')}}"><i class="fa fa-briefcase"></i> Employees</a></li>
                 <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li><a href="general_elements.html">General Elements</a></li>
